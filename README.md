@@ -2,7 +2,7 @@
 
 ## Memory Management
 
-Remember from the discussion in [Class 2](../class02) that the memory used to
+Remember from the discussion in [Class 2](../../../class02) that the memory used to
 store the data and code of a program at run-time is split into three
 parts:
 
