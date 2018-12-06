@@ -565,5 +565,5 @@ which heap-allocated object and is, hence, responsible for deleting
 the object when it is no longer needed. An example of language with
 such an *ownership type system* is [Rust](https://www.rust-lang.org/).
 
-See [here](https://doc.rust-lang.org/1.8.0/book/ownership.html) for a
+See [here](https://doc.rust-lang.org/book/2018-edition/ch04-00-understanding-ownership.html) for a
 tutorial explaining the basics of how memory management works in Rust.
