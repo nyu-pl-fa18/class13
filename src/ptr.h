@@ -17,19 +17,23 @@ class Ptr {
 
  public:
   // constructor to wrap raw pointer (and default constructor)
-  Ptr(T* addr = 0) : addr(addr), counter(new size_t(1)) {
+  Ptr(T* _addr = 0) :
+    addr(_addr), counter(new size_t(1))
+  {
     TRACE(addr);
   }
 
   // copy constructor
-  Ptr(const Ptr<T>& other) : addr(other.addr), counter(other.counter) {
+  Ptr(const Ptr<T>& other) :
+    addr(other.addr), counter(other.counter)
+  {
     TRACE(addr);
     ++(*counter);
   }
 
   // destructor
   ~Ptr() {
-    TRACE(addr);
+    TRACE(addr);  
     if(0 == --(*counter)) {
       if (0 != addr) {
         delete addr;
