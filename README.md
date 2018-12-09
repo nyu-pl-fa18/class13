@@ -416,7 +416,7 @@ We discuss the methods of our smart pointer class `Ptr` in turn:
   ```c++
   ~Ptr() {
     if (0 == --(*counter)) {
-      if (0 != addr) delete addr;
+      delete addr;
       delete counter;
     }
   }
@@ -429,8 +429,8 @@ We discuss the methods of our smart pointer class `Ptr` in turn:
   counter value on the heap, as well as the referenced object are
   deleted.
     
-  Note that we need to safeguard against deleting `addr` when it is
-  a `NULL` pointer.
+  Note that we do not need to safeguard against deleting `addr` when it is
+  a `NULL` pointer because `delete` has no effect when its operand is `NULL`.
 
 * Assignment Operator
 
@@ -438,7 +438,7 @@ We discuss the methods of our smart pointer class `Ptr` in turn:
   Ptr& operator=(const Ptr& right) {
     if (addr != right.addr) {
       if (0 == --(*counter)) {
-        if (0 != addr) delete addr;
+        delete addr;
         delete counter;
       }
       addr = right.addr;

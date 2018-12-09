@@ -35,9 +35,7 @@ class Ptr {
   ~Ptr() {
     TRACE(addr);  
     if(0 == --(*counter)) {
-      if (0 != addr) {
-        delete addr;
-      }
+      delete addr;
       delete counter;
     }
   }
@@ -47,7 +45,7 @@ class Ptr {
     TRACE(addr);
     if (addr != right.addr) {
       if (0 == --(*counter)) {
-        if (addr != 0) delete addr;
+        delete addr;
         delete counter;
       }
       addr = right.addr;
