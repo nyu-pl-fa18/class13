@@ -109,7 +109,7 @@ Mark/sweep is a simple garbage collection algorithm that works as follows:
 GC() 
   for each root pointer p do
     mark(p);
-    sweep();
+  sweep();
 
 mark(p)
   if p->mark != 1 then
