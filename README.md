@@ -113,14 +113,14 @@ GC()
 
 mark(p)
   if p->mark != 1 then
-    p->mark := 1;
+    p->mark = 1;
     for each pointer field p->x do
       mark(p->x);
 
 sweep()
   for each object x in heap do
-    if x.mark = 0 then insert(x, free_list);
-                  else x.mark := 0;
+    if x.mark == 0 then insert(x, free_list);
+                   else x.mark = 0;
 ```
 
 #### Copying GC
@@ -140,17 +140,17 @@ based on copying live objects. The basic algorithm works as follows:
 ```
 GC()
   for each root pointer p do
-    p := traverse(p);
+    p = traverse(p);
     
 traverse(p)
   if *p contains forwarding address then
-    p := *p;  // follow forwarding address
+    p = *p;  // follow forwarding address
     return p;
   else 
-    new_p := copy (p, TO_SPACE);
-    *p := new_p; // write forwarding address
+    new_p = copy (p, TO_SPACE);
+    *p = new_p; // write forwarding address
     for each pointer field p->x do
-      new_p->x := traverse(p->x);
+      new_p->x = traverse(p->x);
     return new_p;
 ```
 
