@@ -21,10 +21,10 @@ and the allocated space is automatically freed when the data is no
 longer needed (e.g. a local variable goes out of scope). However,
 there are two limitations for stack allocated data:
 
-* The lifetime of objects stored on the heap is given by the FIFO
+* The lifetime of objects stored on the stack is given by the LIFO
   order of function invocations. If the lifetime of an object is
   dynamic and not correlated with any function invocation, then it
-  cannot be allocated on the stack (e.g. function closures, .
+  cannot be allocated on the stack (e.g. function closures).
 
 * Objects that are allocated on the stack cannot change their size
   dynamically. For instance, if we want to implement resizable arrays,
